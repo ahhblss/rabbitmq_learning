@@ -21,6 +21,10 @@ public class ReceiveLogs {
 
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
         String queueName = channel.queueDeclare().getQueue();
+
+//        * @param queue the name of the queue
+//        * @param exchange the name of the exchange
+//        * @param routingKey the routine key to use for the binding
         channel.queueBind(queueName, EXCHANGE_NAME, "");
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
